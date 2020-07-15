@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优逸客轮播图</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-list">
+            <a href="javascript:;" class="list" style="background:url(imgs/1.png)"></a>
+            <a href="javascript:;" class="list" style="background:url(imgs/2.png)"></a>
+            <a href="javascript:;" class="list" style="background:url(imgs/3.png)"></a>
+            <a href="javascript:;" class="list" style="background:url(imgs/4.png)"></a>
+            <a href="javascript:;" class="list" style="background:url(imgs/5.png)"></a>
+            <a href="javascript:;" class="list" style="background:url(imgs/6.png)"></a>
+
+        </div>
+        <div class="banner-item">
+            <span class="item" style="background: blue;"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+            <span class="item"></span>
+        </div>
+    </div>
+
+    <script>
+        var lists=document.querySelectorAll(".list");
+        var items=document.querySelectorAll(".item");
+        for (let i=0;i<items.length;i++){
+            num=i;
+            items[i].onclick=function(){
+                for (var j=0;j<lists.length;j++){
+                    lists[j].style.display = "none";
+                    items[j].style.background = "rgb(255,255,255,1)";
+                }
+                lists[i].style.display="block";
+                this.style.background="blue";
+            }
+        }
+
+        var num=0;
+        setInterval(function () {
+            num++;
+            if(num>items.length-1){
+                num=0;
+            }
+            for (var j=0;j<lists.length;j++){
+                    lists[j].style.display = "none";
+                    items[j].style.background = "rgb(255,255,255,1)";
+                }
+                lists[num].style.display="block";
+                items[num].style.background="blue";
+        },3000)
+
+    </script>
+</body>
+</html>
